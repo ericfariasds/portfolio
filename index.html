@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Eric Farias | Dados & Engenharia</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        colors: {
+          bg: '#0B0F14',
+          surface: '#11161D',
+          elevated: '#161D27',
+          border: '#1F2733',
+          text: '#E6EDF3',
+          muted: '#8B98A5',
+          dim: '#5C6773',
+          amber: '#FFB454',
+          cyan: '#6EE7E0',
+          magenta: '#C792EA',
+          green: '#7FD88F',
+        },
+        fontFamily: {
+          mono: ['JetBrains Mono', 'Fira Code', 'monospace'],
+          body: ['Plus Jakarta Sans', 'Segoe UI', 'sans-serif'],
+        },
+      }
+    }
+  }
+</script>
+<style>
+  html { scroll-behavior: smooth; }
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    * { animation: none !important; transition: none !important; }
+  }
+  @keyframes pulse-dot {
+    0% { box-shadow: 0 0 0 0 rgba(127, 216, 143, 0.5); }
+    70% { box-shadow: 0 0 0 6px rgba(127, 216, 143, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(127, 216, 143, 0); }
+  }
+  @keyframes blink-cursor {
+    0%, 50% { opacity: 1; }
+    50.01%, 100% { opacity: 0; }
+  }
+  .pulse-dot::before {
+    content: "";
+    display: inline-block;
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    background: #7FD88F;
+    animation: pulse-dot 2s infinite;
+  }
+</style>
+</head>
+<body class="bg-bg text-text font-body leading-relaxed antialiased">
+
+<nav class="sticky top-0 z-50 bg-bg/85 backdrop-blur-md border-b border-border">
+  <div class="max-w-[1080px] mx-auto px-6 h-16 flex items-center justify-between">
+    <div class="font-mono font-bold text-base tracking-wide">Eric<span class="text-amber">.</span>Farias</div>
+    <div class="hidden md:flex gap-7 font-mono text-sm">
+      <a href="#sobre" class="text-muted hover:text-cyan transition-colors">Sobre</a>
+      <a href="#trajetoria" class="text-muted hover:text-cyan transition-colors">Trajetória</a>
+      <a href="#projetos" class="text-muted hover:text-cyan transition-colors">Projetos</a>
+      <a href="#contato" class="text-muted hover:text-cyan transition-colors">Contato</a>
+    </div>
+  </div>
+</nav>
+
+<header class="pt-24 pb-16">
+  <div class="max-w-[1080px] mx-auto px-6 grid md:grid-cols-[1.1fr_0.9fr] gap-12 items-center">
+    <div>
+      <div class="pulse-dot flex items-center gap-2.5 font-mono text-xs text-green uppercase tracking-[0.12em] mb-4">
+        <span>&nbsp;</span><span>disponível para projetos</span>
+      </div>
+      <h1 class="font-mono font-bold leading-[1.15] text-[clamp(2rem,5vw,3.2rem)] mb-5">
+        Transformando dados<br>em <span class="text-amber">decisões</span>.
+      </h1>
+      <p class="text-muted text-[1.05rem] max-w-[480px] mb-8">
+        Análise de dados, SQL e Python aplicados a problemas reais. Construo pipelines, dashboards e automações que tiram insumo bruto e entregam clareza.
+      </p>
+      <div class="flex gap-4 flex-wrap">
+        <a href="#projetos" class="font-mono text-sm px-6 py-3 rounded-lg border border-amber bg-amber text-[#1A1206] font-semibold inline-flex items-center gap-2 transition-all hover:bg-[#ffc679]">Ver projetos</a>
+        <a href="#contato" class="font-mono text-sm px-6 py-3 rounded-lg border border-border bg-transparent text-text inline-flex items-center gap-2 transition-all hover:border-cyan hover:text-cyan">Falar comigo</a>
+      </div>
+    </div>
+
+    <div class="bg-surface border border-border rounded-lg overflow-hidden shadow-[0_20px_60px_-20px_rgba(0,0,0,0.6)]">
+      <div class="flex items-center gap-2 px-3.5 py-2.5 bg-elevated border-b border-border">
+        <span class="w-2.5 h-2.5 rounded-full bg-[#FF5F56]"></span>
+        <span class="w-2.5 h-2.5 rounded-full bg-[#FFBD2E]"></span>
+        <span class="w-2.5 h-2.5 rounded-full bg-[#27C93F]"></span>
+        <span class="ml-2 font-mono text-xs text-dim">whoami.py</span>
+      </div>
+      <div class="font-mono text-sm p-6 min-h-[220px]">
+        <span class="text-green">&gt;&gt;&gt;</span> <span class="text-magenta">from</span> eric <span class="text-magenta">import</span> perfil<br>
+        <span class="text-green">&gt;&gt;&gt;</span> perfil.<span class="text-cyan">resumo</span>()<br>
+        <span class="text-dim"># carregando dataset...</span>
+
+        <div class="mt-4 pt-4 border-t border-dashed border-border text-muted">
+          <table class="w-full border-collapse mt-2 text-[0.8rem]">
+            <tr><th class="text-left p-1 px-2 border-b border-border text-amber font-semibold">campo</th><th class="text-left p-1 px-2 border-b border-border text-amber font-semibold">valor</th></tr>
+            <tr><td class="p-1 px-2 border-b border-border">nome</td><td class="p-1 px-2 border-b border-border">Eric Farias</td></tr>
+            <tr><td class="p-1 px-2 border-b border-border">foco</td><td class="p-1 px-2 border-b border-border">dados / SQL / python</td></tr>
+            <tr><td class="p-1 px-2 border-b border-border">stack</td><td class="p-1 px-2 border-b border-border">SQL, Python, Pandas</td></tr>
+            <tr><td class="p-1 px-2">status</td><td class="p-1 px-2">aprendendo &amp; construindo</td></tr>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<section id="sobre" class="py-18 border-t border-border">
+  <div class="max-w-[1080px] mx-auto px-6">
+    <div class="flex items-baseline justify-between gap-4 mb-10 flex-wrap">
+      <div>
+        <div class="font-mono text-xs text-cyan uppercase tracking-[0.15em]">// 01 sobre mim</div>
+        <h2 class="font-mono text-[clamp(1.5rem,3vw,2rem)] mt-1.5">Quem está do outro lado do código</h2>
+      </div>
+      <p class="text-muted text-[0.95rem] max-w-[360px] text-right">Curioso por natureza, gosto de entender o "porquê" antes do "como".</p>
+    </div>
+
+    <div class="grid md:grid-cols-2 gap-12 items-start">
+      <div>
+        <p class="text-muted mb-4">Sou apaixonado por <strong class="text-text">dados</strong> e pelo processo de transformar informação dispersa em algo que faz sentido. Comecei estudando lógica e fui me aproximando naturalmente de SQL e Python como ferramentas para resolver problemas do dia a dia.</p>
+        <p class="text-muted mb-4">Hoje estou construindo minha base técnica com foco em <strong class="text-text">análise de dados</strong>, consultas, modelagem simples e automação de tarefas repetitivas. Gosto de projetos pequenos e bem definidos — onde consigo ver o problema, escrever o código e checar o resultado.</p>
+        <p class="text-muted">Esse portfólio é meu espaço de prática: cada projeto aqui representa um passo real da minha curva de aprendizado, documentado com transparência.</p>
+      </div>
+
+      <div class="bg-surface border border-border rounded-lg p-6">
+        <h3 class="font-mono text-sm text-amber mb-4 tracking-wide">STACK ATUAL</h3>
+
+        <div class="mb-5">
+          <h4 class="font-mono text-xs text-dim uppercase tracking-[0.1em] mb-2.5">Linguagens & Consultas</h4>
+          <div class="flex gap-2 flex-wrap">
+            <span class="font-mono text-xs px-2.5 py-1.5 border border-cyan/35 rounded-full text-cyan bg-elevated">SQL</span>
+            <span class="font-mono text-xs px-2.5 py-1.5 border border-cyan/35 rounded-full text-cyan bg-elevated">Python</span>
+            <span class="font-mono text-xs px-2.5 py-1.5 border border-border rounded-full text-muted bg-elevated">HTML</span>
+            <span class="font-mono text-xs px-2.5 py-1.5 border border-border rounded-full text-muted bg-elevated">CSS</span>
+          </div>
+        </div>
+
+        <div class="mb-5">
+          <h4 class="font-mono text-xs text-dim uppercase tracking-[0.1em] mb-2.5">Bibliotecas & Ferramentas</h4>
+          <div class="flex gap-2 flex-wrap">
+            <span class="font-mono text-xs px-2.5 py-1.5 border border-border rounded-full text-muted bg-elevated">Pandas</span>
+            <span class="font-mono text-xs px-2.5 py-1.5 border border-border rounded-full text-muted bg-elevated">Jupyter</span>
+            <span class="font-mono text-xs px-2.5 py-1.5 border border-border rounded-full text-muted bg-elevated">Git</span>
+          </div>
+        </div>
+
+        <div>
+          <h4 class="font-mono text-xs text-dim uppercase tracking-[0.1em] mb-2.5">Em estudo</h4>
+          <div class="flex gap-2 flex-wrap">
+            <span class="font-mono text-xs px-2.5 py-1.5 border border-border rounded-full text-muted bg-elevated">Power BI</span>
+            <span class="font-mono text-xs px-2.5 py-1.5 border border-border rounded-full text-muted bg-elevated">PostgreSQL</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="trajetoria" class="py-18 border-t border-border">
+  <div class="max-w-[1080px] mx-auto px-6">
+    <div class="flex items-baseline justify-between gap-4 mb-10 flex-wrap">
+      <div>
+        <div class="font-mono text-xs text-cyan uppercase tracking-[0.15em]">// 02 git log</div>
+        <h2 class="font-mono text-[clamp(1.5rem,3vw,2rem)] mt-1.5">Minha trajetória</h2>
+      </div>
+      <p class="text-muted text-[0.95rem] max-w-[360px] text-right">Cada commit é um passo. Sem atalhos, só consistência.</p>
+    </div>
+
+    <div class="relative pl-7 border-l-2 border-border">
+
+      <div class="relative pb-9">
+        <div class="absolute -left-[33px] top-1 w-3 h-3 rounded-full bg-bg border-2 border-amber shadow-[0_0_0_4px_rgba(255,180,84,0.15)]"></div>
+        <div class="flex gap-3 items-center mb-1.5 flex-wrap font-mono text-xs text-dim">
+          <span class="text-magenta">#current</span>
+          <span class="text-amber border border-amber/35 rounded-full px-2 py-0.5 text-[0.7rem]">em andamento</span>
+        </div>
+        <h3 class="font-mono text-base mb-1.5">Construindo portfólio de dados</h3>
+        <p class="text-muted max-w-[560px]">Organizando meus primeiros projetos em SQL e Python para mostrar na prática o que venho aprendendo, com foco em análise e automação.</p>
+      </div>
+
+      <div class="relative pb-9">
+        <div class="absolute -left-[33px] top-1 w-3 h-3 rounded-full bg-bg border-2 border-cyan"></div>
+        <div class="flex gap-3 items-center mb-1.5 flex-wrap font-mono text-xs text-dim">
+          <span class="text-magenta">#02</span>
+          <span class="text-green border border-border rounded-full px-2 py-0.5 text-[0.7rem]">feat</span>
+        </div>
+        <h3 class="font-mono text-base mb-1.5">Imersão em Python e SQL</h3>
+        <p class="text-muted max-w-[560px]">Aprofundando lógica de programação, manipulação de dados com Pandas e consultas SQL para extração e tratamento de informações.</p>
+      </div>
+
+      <div class="relative">
+        <div class="absolute -left-[33px] top-1 w-3 h-3 rounded-full bg-bg border-2 border-cyan"></div>
+        <div class="flex gap-3 items-center mb-1.5 flex-wrap font-mono text-xs text-dim">
+          <span class="text-magenta">#01</span>
+          <span class="text-muted border border-border rounded-full px-2 py-0.5 text-[0.7rem]">init</span>
+        </div>
+        <h3 class="font-mono text-base mb-1.5">Primeiros passos em tecnologia</h3>
+        <p class="text-muted max-w-[560px]">Comecei a estudar lógica de programação e desenvolvimento web (HTML/CSS), montando as primeiras páginas e entendendo a estrutura de um projeto.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section id="projetos" class="py-18 border-t border-border">
+  <div class="max-w-[1080px] mx-auto px-6">
+    <div class="flex items-baseline justify-between gap-4 mb-10 flex-wrap">
+      <div>
+        <div class="font-mono text-xs text-cyan uppercase tracking-[0.15em]">// 03 projetos</div>
+        <h2 class="font-mono text-[clamp(1.5rem,3vw,2rem)] mt-1.5">O que venho construindo</h2>
+      </div>
+      <p class="text-muted text-[0.95rem] max-w-[360px] text-right">Da prática em sala de aula a projetos próprios de dados.</p>
+    </div>
+
+    <div class="grid md:grid-cols-3 gap-6">
+
+      <!-- Featured -->
+      <div class="md:col-span-3 bg-surface border border-border rounded-lg overflow-hidden grid md:grid-cols-[1.2fr_1fr] transition-all hover:border-cyan/40 hover:-translate-y-0.5">
+        <div class="p-6 flex flex-col">
+          <div class="font-mono text-[0.7rem] uppercase tracking-[0.1em] mb-2.5 text-green">live</div>
+          <h3 class="font-mono text-lg mb-2.5">Portfólio Pessoal</h3>
+          <p class="text-muted text-[0.92rem] mb-4 flex-1">Este site. Construído com HTML e Tailwind CSS, com um design system próprio em tokens (cores, tipografia, espaçamento) inspirado em interfaces de dashboards e terminais.</p>
+          <div class="flex gap-2 flex-wrap mb-4">
+            <span class="font-mono text-xs px-2.5 py-1.5 border border-border rounded-full text-muted bg-elevated">HTML</span>
+            <span class="font-mono text-xs px-2.5 py-1.5 border border-border rounded-full text-muted bg-elevated">Tailwind CSS</span>
+            <span class="font-mono text-xs px-2.5 py-1.5 border border-border rounded-full text-muted bg-elevated">Design System</span>
+          </div>
+          <a href="https://github.com/ericfariasds/portfolio" class="font-mono text-sm text-cyan hover:underline">ver repositório →</a>
+        </div>
+        <div class="bg-elevated font-mono text-xs text-dim p-5 flex flex-col justify-center gap-1.5 border-t md:border-t-0 md:border-l border-border order-2">
+          <div class="flex justify-between py-1 border-b border-border"><span class="text-muted">arquivo</span><span class="text-cyan">index.html</span></div>
+          <div class="flex justify-between py-1 border-b border-border"><span class="text-muted">framework</span><span class="text-cyan">Tailwind CSS</span></div>
+          <div class="flex justify-between py-1 border-b border-border"><span class="text-muted">linguagens</span><span class="text-cyan">HTML</span></div>
+          <div class="flex justify-between py-1"><span class="text-muted">status</span><span class="text-cyan">deployed</span></div>
+        </div>
+      </div>
+
+      <!-- Placeholders -->
+      <div class="bg-surface border border-dashed border-border rounded-lg p-6 flex flex-col">
+        <div class="font-mono text-[0.7rem] uppercase tracking-[0.1em] mb-2.5 text-dim">em breve</div>
+        <h3 class="font-mono text-lg mb-2.5 text-dim">Análise exploratória em SQL</h3>
+        <p class="text-muted text-[0.92rem] mb-4 flex-1">Espaço reservado para o primeiro projeto de consultas e análise de dados em SQL — em desenvolvimento.</p>
+        <div class="flex gap-2 flex-wrap">
+          <span class="font-mono text-xs px-2.5 py-1.5 border border-border rounded-full text-muted bg-elevated">SQL</span>
+        </div>
+      </div>
+
+      <div class="bg-surface border border-dashed border-border rounded-lg p-6 flex flex-col">
+        <div class="font-mono text-[0.7rem] uppercase tracking-[0.1em] mb-2.5 text-dim">em breve</div>
+        <h3 class="font-mono text-lg mb-2.5 text-dim">Automação com Python</h3>
+        <p class="text-muted text-[0.92rem] mb-4 flex-1">Espaço reservado para um projeto de automação de tarefas e tratamento de dados usando Python e Pandas.</p>
+        <div class="flex gap-2 flex-wrap">
+          <span class="font-mono text-xs px-2.5 py-1.5 border border-border rounded-full text-muted bg-elevated">Python</span>
+          <span class="font-mono text-xs px-2.5 py-1.5 border border-border rounded-full text-muted bg-elevated">Pandas</span>
+        </div>
+      </div>
+
+      <div class="bg-surface border border-dashed border-border rounded-lg p-6 flex flex-col">
+        <div class="font-mono text-[0.7rem] uppercase tracking-[0.1em] mb-2.5 text-dim">em breve</div>
+        <h3 class="font-mono text-lg mb-2.5 text-dim">Próximo projeto</h3>
+        <p class="text-muted text-[0.92rem] mb-4 flex-1">Mais um espaço reservado para o que vier a seguir na jornada de dados.</p>
+        <div class="flex gap-2 flex-wrap">
+          <span class="font-mono text-xs px-2.5 py-1.5 border border-border rounded-full text-muted bg-elevated">?</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section id="contato" class="py-18 border-t border-border text-center">
+  <div class="max-w-[1080px] mx-auto px-6">
+    <div class="font-mono text-xs text-cyan uppercase tracking-[0.15em] mb-2 mt-2 text-left">// 04 contato</div>
+    <h2 class="font-mono text-[clamp(1.6rem,4vw,2.4rem)] mb-4">Vamos conversar?</h2>
+    <p class="text-muted max-w-[480px] mx-auto mb-8">Estou aberto a oportunidades, parcerias e trocas sobre dados, SQL e Python. Manda uma mensagem.</p>
+    <div class="flex justify-center gap-4 flex-wrap">
+      <a href="mailto:sfarias.eric@gmail.com" class="font-mono text-sm px-6 py-3 rounded-lg border border-amber bg-amber text-[#1A1206] font-semibold inline-flex items-center gap-2 hover:bg-[#ffc679]">Enviar e-mail</a>
+      <a href="https://github.com/ericfariasds" class="font-mono text-sm px-6 py-3 rounded-lg border border-border bg-transparent text-text inline-flex items-center gap-2 hover:border-cyan hover:text-cyan">GitHub</a>
+      <a href="https://www.linkedin.com/in/ericfariasdev/" class="font-mono text-sm px-6 py-3 rounded-lg border border-border bg-transparent text-text inline-flex items-center gap-2 hover:border-cyan hover:text-cyan">LinkedIn</a>
+    </div>
+  </div>
+</section>
+
+<footer class="border-t border-border py-7 text-center font-mono text-xs text-dim">
+  <div class="max-w-[1080px] mx-auto px-6">
+    © 2026 Eric Farias — feito com <span class="text-amber">dados</span> e café.
+  </div>
+</footer>
+
+</body>
+</html>
