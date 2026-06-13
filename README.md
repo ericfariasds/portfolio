@@ -2,7 +2,7 @@
 
 Site pessoal com foco em dados, SQL e Python. Construído com HTML e Tailwind CSS, com um design inspirado em terminais e dashboards de dados.
 
-[Acessar o site](https://github.com/ericfariasds/portfolio)
+[Acessar o site](https://ericfariasds.github.io/portfolio/)
 
 ## Sobre
 
