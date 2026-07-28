@@ -9,20 +9,21 @@
 <script src="https://cdn.tailwindcss.com"></script>
 <script>
   tailwind.config = {
+    darkMode: 'class',
     theme: {
       extend: {
         colors: {
-          bg: '#0B0F14',
-          surface: '#11161D',
-          elevated: '#161D27',
-          border: '#1F2733',
-          text: '#E6EDF3',
-          muted: '#8B98A5',
-          dim: '#5C6773',
-          amber: '#FFB454',
-          cyan: '#6EE7E0',
-          magenta: '#C792EA',
-          green: '#7FD88F',
+          bg: 'var(--bg)',
+          surface: 'var(--surface)',
+          elevated: 'var(--elevated)',
+          border: 'var(--border)',
+          text: 'var(--text)',
+          muted: 'var(--muted)',
+          dim: 'var(--dim)',
+          amber: 'var(--amber)',
+          cyan: 'var(--cyan)',
+          magenta: 'var(--magenta)',
+          green: 'var(--green)',
         },
         fontFamily: {
           mono: ['JetBrains Mono', 'Fira Code', 'monospace'],
@@ -38,6 +39,38 @@
     html { scroll-behavior: auto; }
     * { animation: none !important; transition: none !important; }
   }
+ 
+  /* ---- Theme tokens ---- */
+  :root {
+    --bg: #0B0F14;
+    --surface: #11161D;
+    --elevated: #161D27;
+    --border: #1F2733;
+    --text: #E6EDF3;
+    --muted: #8B98A5;
+    --dim: #5C6773;
+    --amber: #FFB454;
+    --cyan: #6EE7E0;
+    --magenta: #C792EA;
+    --green: #7FD88F;
+  }
+ 
+  html.light {
+    --bg: #F7F8FA;
+    --surface: #FFFFFF;
+    --elevated: #F0F2F5;
+    --border: #E1E5EA;
+    --text: #14181D;
+    --muted: #5C6773;
+    --dim: #8B98A5;
+    --amber: #D98A1F;
+    --cyan: #0E9E96;
+    --magenta: #9B5DBD;
+    --green: #3E9C55;
+  }
+ 
+  body, nav, .bg-bg { transition: background-color .25s ease, color .25s ease, border-color .25s ease; }
+ 
   @keyframes pulse-dot {
     0% { box-shadow: 0 0 0 0 rgba(127, 216, 143, 0.5); }
     70% { box-shadow: 0 0 0 6px rgba(127, 216, 143, 0); }
@@ -55,18 +88,57 @@
     background: #7FD88F;
     animation: pulse-dot 2s infinite;
   }
+ 
+  /* ---- Logo swap ---- */
+  .logo-dark { display: block; }
+  .logo-light { display: none; }
+  html.light .logo-dark { display: none; }
+  html.light .logo-light { display: block; }
+ 
+  /* ---- Theme toggle button ---- */
+  .theme-toggle {
+    position: relative;
+    width: 40px;
+    height: 40px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 9999px;
+    border: 1px solid var(--border);
+    background: var(--elevated);
+    cursor: pointer;
+    flex-shrink: 0;
+  }
+  .theme-toggle svg {
+    width: 18px;
+    height: 18px;
+    stroke: var(--muted);
+  }
+  .theme-toggle .icon-moon { display: block; }
+  .theme-toggle .icon-sun { display: none; }
+  html.light .theme-toggle .icon-moon { display: none; }
+  html.light .theme-toggle .icon-sun { display: block; }
 </style>
 </head>
 <body class="bg-bg text-text font-body leading-relaxed antialiased">
 
-<nav class="sticky top-0 z-50 bg-bg/85 backdrop-blur-md border-b border-border">
-  <div class="max-w-[1080px] mx-auto px-6 h-16 flex items-center justify-between">
-    <div class="font-mono font-bold text-base tracking-wide">Eric<span class="text-amber">.</span>Farias</div>
-    <div class="hidden md:flex gap-7 font-mono text-sm">
-      <a href="#sobre" class="text-muted hover:text-cyan transition-colors">Sobre</a>
-      <a href="#trajetoria" class="text-muted hover:text-cyan transition-colors">Trajetória</a>
-      <a href="#projetos" class="text-muted hover:text-cyan transition-colors">Projetos</a>
-      <a href="#contato" class="text-muted hover:text-cyan transition-colors">Contato</a>
+<nav class="sticky top-0 z-50 bg-bg/85 backdrop-blur-md border-b border-border w-full">
+  <div class="w-full px-6 md:px-10 h-20 flex items-center justify-between">
+    <a href="#" class="flex items-center h-14 shrink-0">
+      <img src="../logo/logo-dark.png" alt="Eric Farias . Data Analyst" class="logo-dark h-full w-auto">
+      <img src="../logo/logo-light.png" alt="Eric Farias . Data Analyst" class="logo-light h-full w-auto">
+    </a>
+    <div class="flex items-center gap-7">
+      <div class="hidden md:flex gap-7 font-mono text-sm">
+        <a href="#sobre" class="text-muted hover:text-cyan transition-colors">Sobre</a>
+        <a href="#trajetoria" class="text-muted hover:text-cyan transition-colors">Trajetória</a>
+        <a href="#projetos" class="text-muted hover:text-cyan transition-colors">Projetos</a>
+        <a href="#contato" class="text-muted hover:text-cyan transition-colors">Contato</a>
+      </div>
+      <button id="theme-toggle" class="theme-toggle" aria-label="Alternar tema claro/escuro" title="Alternar tema">
+        <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
+      </button>
     </div>
   </div>
 </nav>
@@ -304,9 +376,27 @@
 
 <footer class="border-t border-border py-7 text-center font-mono text-xs text-dim">
   <div class="max-w-[1080px] mx-auto px-6">
-    © 2026 Eric Farias — feito com <span class="text-amber">dados</span> e café.
+    © 2026 Eric Farias - feito com <span class="text-amber">dados</span> e café.
   </div>
 </footer>
+
+<script>
+  (function () {
+    const root = document.documentElement;
+    const toggle = document.getElementById('theme-toggle');
+    const saved = localStorage.getItem('theme');
+    const prefersLight = window.matchMedia('(prefers-color-scheme: light)').matches;
+ 
+    if (saved === 'light' || (!saved && prefersLight)) {
+      root.classList.add('light');
+    }
+ 
+    toggle.addEventListener('click', () => {
+      root.classList.toggle('light');
+      localStorage.setItem('theme', root.classList.contains('light') ? 'light' : 'dark');
+    });
+  })();
+</script>
 
 </body>
 </html>
