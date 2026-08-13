@@ -122,7 +122,7 @@
   html.light .theme-toggle .icon-sun { display: block; }
 </style>
 </head>
-<body class="bg-bg text-text font-body leading-relaxed antialiased">
+<body class="bg-bg text-text font-body leading-relaxed antialiased text-justify">
 
 <nav class="sticky top-0 z-50 bg-bg/85 backdrop-blur-md border-b border-border w-full">
   <div class="w-full px-6 md:px-10 h-24 flex items-center justify-between">
@@ -259,8 +259,8 @@
         </div>
 
         <div class="flex justify-center mt-14">
-          <div class="bg-surface border border-border rounded-lg p-16 shadow-[0_0_70px_-15px_rgba(255,180,84,0.45)]">
-            <img src="logo/profile-illustration.png" alt="Ilustração de Eric Farias" class="w-full max-w-[220px] h-auto">
+          <div class="bg-surface border border-border rounded-lg p-8 shadow-[0_0_70px_-15px_rgba(255,180,84,0.45)]">
+            <img src="logo/profile-icon.jpeg" alt="Ilustração de Eric Farias" class="w-full max-w-[300px] h-auto">
           </div>
         </div>
       </div>
@@ -350,7 +350,7 @@
       <!-- Analise exploratoria do FNMA -->
       <div class="md:col-span-3 bg-surface border border-border rounded-lg overflow-hidden grid md:grid-cols-[1.2fr_1fr] transition-all hover:border-cyan/40 hover:-translate-y-0.5">
         <div class="p-6 flex flex-col">
-          <div class="font-mono text-[0.7rem] uppercase tracking-[0.1em] mb-2.5 text-green">live</div>
+          <div class="font-mono text-[0.7rem] uppercase tracking-[0.1em] mb-2.5 text-green">notebook</div>
           <h3 class="font-mono text-lg mb-2.5">Análise exploratória do FNMA</h3>
           <p class="text-muted text-[0.92rem] mb-4 flex-1">Projeto de análise e visualização de dados dos projetos financiados pelo Fundo Nacional do Meio Ambiente (FNMA) entre 1990 e 2024</p>
           <div class="flex gap-2 flex-wrap mb-4">
@@ -364,6 +364,27 @@
           <div class="flex justify-between py-1 border-b border-border"><span class="text-muted">arquivo</span><span class="text-cyan">analise_fnma.ipynb</span></div>
           <div class="flex justify-between py-1 border-b border-border"><span class="text-muted">biblioteca</span><span class="text-cyan">Pandas</span></div>
           <div class="flex justify-between py-1 border-b border-border"><span class="text-muted">linguagem</span><span class="text-cyan">Python</span></div>
+          <div class="flex justify-between py-1"><span class="text-muted">status</span><span class="text-cyan">deployed</span></div>
+        </div>
+      </div>
+
+      <!-- Sistema de Biblioteca com PostgreSQL -->
+      <div class="md:col-span-3 bg-surface border border-border rounded-lg overflow-hidden grid md:grid-cols-[1.2fr_1fr] transition-all hover:border-cyan/40 hover:-translate-y-0.5">
+        <div class="p-6 flex flex-col">
+          <div class="font-mono text-[0.7rem] uppercase tracking-[0.1em] mb-2.5 text-green">CODE</div>
+          <h3 class="font-mono text-lg mb-2.5">Sistema de Biblioteca - SQL</h3>
+          <p class="text-muted text-[0.92rem] mb-4 flex-1">Projeto de banco de dados relacional simulando o controle completo de uma biblioteca. Focado em modelagem de dados, automação de regras de negócio com triggers e integridade de dados.</p>
+          <div class="flex gap-2 flex-wrap mb-4">
+            <span class="font-mono text-xs px-2.5 py-1.5 border border-border rounded-full text-muted bg-elevated">PostgreSQL</span>
+            <span class="font-mono text-xs px-2.5 py-1.5 border border-border rounded-full text-muted bg-elevated">PL/pgSQL</span>
+            <span class="font-mono text-xs px-2.5 py-1.5 border border-border rounded-full text-muted bg-elevated">Modelagem de Dados</span>
+          </div>
+          <a href="https://github.com/ericfariasds/sistema-biblioteca-postgresql/tree/main" class="font-mono text-sm text-cyan hover:underline">ver repositório →</a>
+        </div>
+        <div class="bg-elevated font-mono text-xs text-dim p-5 flex flex-col justify-center gap-1.5 border-t md:border-t-0 md:border-l border-border order-2">
+          <div class="flex justify-between py-1 border-b border-border"><span class="text-muted">arquivo</span><span class="text-cyan">03_triggers.sql</span></div>
+          <div class="flex justify-between py-1 border-b border-border"><span class="text-muted">biblioteca</span><span class="text-cyan">PostgreSQL</span></div>
+          <div class="flex justify-between py-1 border-b border-border"><span class="text-muted">linguagem</span><span class="text-cyan">SQL / PL/pgSQL</span></div>
           <div class="flex justify-between py-1"><span class="text-muted">status</span><span class="text-cyan">deployed</span></div>
         </div>
       </div>
